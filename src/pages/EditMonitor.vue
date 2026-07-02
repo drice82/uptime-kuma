@@ -91,6 +91,7 @@
                                             Tailscale Ping
                                         </option>
                                         <option value="websocket-upgrade">Websocket Upgrade</option>
+                                        <option value="xray-subscription">Xray Subscription</option>
                                     </optgroup>
 
                                     <!-- Should sort from A to Z in this category -->
@@ -128,6 +129,9 @@
                                         </a>
                                     </template>
                                 </i18n-t>
+                                <div v-if="monitor.type === 'xray-subscription'" class="form-text">
+                                    {{ $t("xraySubscriptionHelpText") }}
+                                </div>
                             </div>
 
                             <div v-if="monitor.type === 'tailscale-ping'" class="alert alert-warning" role="alert">
@@ -186,7 +190,8 @@
                                     monitor.type === 'http' ||
                                     monitor.type === 'keyword' ||
                                     monitor.type === 'json-query' ||
-                                    monitor.type === 'real-browser'
+                                    monitor.type === 'real-browser' ||
+                                    monitor.type === 'xray-subscription'
                                 "
                                 class="my-3"
                             >
@@ -3668,6 +3673,8 @@ message HealthCheckResponse {
                     this.monitor.timeout = 10;
                 } else if (this.monitor.type === "kafka-producer") {
                     this.monitor.timeout = 1;
+                } else if (this.monitor.type === "xray-subscription") {
+                    this.monitor.timeout = 10;
                 } else {
                     this.monitor.timeout = 48;
                 }

@@ -1310,6 +1310,7 @@
     "RabbitMQ Username": "RabbitMQ Username",
     "RabbitMQ Password": "RabbitMQ Password",
     "rabbitmqHelpText": "To use the monitor, you will need to enable the Management Plugin in your RabbitMQ setup. For more information, please consult the {rabitmq_documentation}.",
+    "xraySubscriptionHelpText": "Enter your xray/v2ray subscription URL. The monitor will fetch and parse all proxy nodes (vmess, vless, trojan, ss) and check TCP/TLS connectivity for each. If any nodes are abnormal, the heartbeat message will list the failed nodes.",
     "SendGrid API Key": "SendGrid API Key",
     "Separate multiple email addresses with commas": "Separate multiple email addresses with commas",
     "brevoApiKey": "Brevo API Key",
